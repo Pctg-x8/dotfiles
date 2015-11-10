@@ -1,0 +1,25 @@
+{
+	"segments":
+	{
+		"right":
+		[
+			{
+				"function": "powerline.segments.common.bat.battery",
+				"priority": 20
+			},
+			{
+				"function": "powerline.segments.common.sys.system_load",
+				"priority": 50
+			},
+			{
+				"function": "powerline.segments.common.time.date",
+				"args":
+				{
+					"format": "%H:%M",
+					"istime": true
+				}
+			}
+		],
+		"left": []
+	}
+}

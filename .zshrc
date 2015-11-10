@@ -13,6 +13,10 @@ PROMPT="
 %{$fg_no_bold[cyan]%}[%n@%M] %{$fg_bold[yellow]%}%~%{$reset_color%}
 %# "
 
+# powerline enable
+powerline-daemon -q
+. /usr/lib/python3.5/site-packages/powerline/bindings/zsh/powerline.zsh
+
 # autostart tmux
 is_screen_running() {
 	[ ! -z "$WINDOW" ]	
