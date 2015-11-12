@@ -48,4 +48,3 @@ if ! is_screen_or_tmux_running && shell_has_started_interactively; then
 	done
 fi
 
-
