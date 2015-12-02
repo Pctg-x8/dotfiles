@@ -1,5 +1,7 @@
 # zshrc
 
+local use_tmux=false
+
 autoload -U colors && colors
 autoload -U compinit && compinit
 
@@ -7,6 +9,7 @@ zstyle ':completion:*' menu select
 
 alias ls='ls --color=auto'
 alias subl=subl3
+alias vscode=visual-studio-code
 
 source ~/developing/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 PROMPT="
@@ -18,6 +21,7 @@ powerline-daemon -q
 . /usr/lib/python3.5/site-packages/powerline/bindings/zsh/powerline.zsh
 
 # autostart tmux
+if $use_tmux; then
 is_screen_running() {
 	[ ! -z "$WINDOW" ]	
 }
@@ -46,5 +50,6 @@ if ! is_screen_or_tmux_running && shell_has_started_interactively; then
 			break
 		fi
 	done
+fi
 fi
 
