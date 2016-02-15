@@ -17,8 +17,8 @@ PROMPT="
 %# "
 
 # powerline enable
-powerline-daemon -q
-. /usr/lib/python3.5/site-packages/powerline/bindings/zsh/powerline.zsh
+# powerline-daemon -q
+# . /usr/lib/python3.5/site-packages/powerline/bindings/zsh/powerline.zsh
 
 # autostart tmux
 if $use_tmux; then
