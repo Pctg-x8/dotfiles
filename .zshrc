@@ -17,7 +17,7 @@ rprompt_hooker() {
 	vcs_info
 	if   [[ -n "$vcs_info_msg_1_" ]]; then color=${fg[green]} # staged
 	elif [[ -n "$vcs_info_msg_2_" ]]; then color=${fg[red]}   # unstaged
-	else color=${fg[cyan]}
+	else color=${fg[red]}
 	fi
 	if [ -n "$vcs_info_msg_0_" ]; then
 		echo "[%{$color%}$vcs_info_msg_0_%{$reset_color%}]"
