@@ -5,6 +5,25 @@ local use_tmux=false
 autoload -U colors && colors
 autoload -U compinit && compinit
 
+# vcs_info
+autoload -Uz vcs_info
+setopt prompt_subst
+zstyle ':vcs_info:*' formats '%b%f'
+zstyle ':vcs_info:*' actionformats '%b%f(%F{red}%a%f)'
+zstyle ':vcs_info:*' enable git
+rprompt_hooker() {
+	local color
+
+	vcs_info
+	if   [ -n "$vcs_info_msg_1_" ]; then color=${fg[green]} # staged
+	elif [ -n "$vcs_info_msg_2_" ]; then color=${fg[red]}   # unstaged
+	else color=${fg[red]}
+	fi
+	if [ -n "$vcs_info_msg_0_" ]; then
+		echo "[%{$color%}$vcs_info_msg_0_%{$reset_color%}]"
+	fi
+}
+
 zstyle ':completion:*' menu select
 
 alias ls='ls --color=auto'
@@ -23,6 +42,7 @@ source ~/developing/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 PROMPT="
 %{$fg_no_bold[cyan]%}[%n@%M] %{$fg_bold[yellow]%}%~%{$reset_color%}
  %(?.${succ_face}.${fail_face})%{$reset_color%} < "
+RPROMPT=$'$(rprompt_hooker)'
 
 # powerline enable
 # powerline-daemon -q
