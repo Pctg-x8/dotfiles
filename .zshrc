@@ -8,6 +8,7 @@ autoload -U compinit && compinit
 # vcs_info
 autoload -Uz vcs_info
 setopt prompt_subst
+zstyle ':vcs_info:git:*' check-for-changes true
 zstyle ':vcs_info:*' formats '%b'
 zstyle ':vcs_info:*' actionformats '%b (%F{red}%a%f)'
 zstyle ':vcs_info:*' enable git
