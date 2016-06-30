@@ -8,17 +8,18 @@ autoload -U compinit && compinit
 # vcs_info
 autoload -Uz vcs_info
 setopt prompt_subst
+zstyle ':vcs_info:*' max-exports 4
 zstyle ':vcs_info:git:*' check-for-changes true
-zstyle ':vcs_info:*' formats '%b'
+zstyle ':vcs_info:*' formats '%b' '%c' '%u'
 zstyle ':vcs_info:*' actionformats '%b (%F{red}%a%f)'
 zstyle ':vcs_info:*' enable git
 rprompt_hooker() {
 	local color
 
 	vcs_info
-	if   [[ -n "$vcs_info_msg_1_" ]]; then color=${fg[green]} # staged
-	elif [[ -n "$vcs_info_msg_2_" ]]; then color=${fg[red]}   # unstaged
-	else color=${fg[red]}
+	if   [[ -n "$vcs_info_msg_1_" ]]; then color=${fg[red]} # staged chg
+	elif [[ -n "$vcs_info_msg_2_" ]]; then color=${fg[red]} # unstaged chg
+	else color=${fg[green]}                                 # clean
 	fi
 	if [ -n "$vcs_info_msg_0_" ]; then
 		echo "[%{$color%}$vcs_info_msg_0_%{$reset_color%}]"
