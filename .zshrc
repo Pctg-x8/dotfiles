@@ -28,7 +28,8 @@ rprompt_hooker() {
 
 zstyle ':completion:*' menu select
 
-alias ls='ls --color=auto'
+# Platform depending settings
+[ -f $HOME/.zshrc_`uname` ] && source $HOME/.zshrc_`uname`
 alias subl=subl3
 alias vscode=visual-studio-code
 alias idea=$HOME/Downloads/idea-IC-145.258.11/bin/idea.sh
@@ -40,7 +41,7 @@ export IDEA_JDK=$JAVA_HOME
 local succ_face="%{$fg_no_bold[green]%}=*'-'="
 local fail_face="%{$fg_no_bold[blue]%}=*;-;="
 
-source ~/developing/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 PROMPT="
 %{$fg_no_bold[cyan]%}[%n@%M] %{$fg_bold[yellow]%}%~%{$reset_color%}
  %(?.${succ_face}.${fail_face})%{$reset_color%} < "

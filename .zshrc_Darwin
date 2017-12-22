@@ -1,0 +1,3 @@
+# Darwin/BSD
+
+alias ls="ls -G"
