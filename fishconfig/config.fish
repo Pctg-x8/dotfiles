@@ -3,7 +3,7 @@ set -l ScriptPath (dirname (status -f))
 set -x GPG_TTY (tty)
 set -x EDITOR (which vim)
 
-if status is-interactive
+if status is-interactive; and [ (uname) = "Darwin" ]
 	eval (/opt/homebrew/bin/brew shellenv)
 end
 
