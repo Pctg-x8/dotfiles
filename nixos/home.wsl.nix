@@ -6,6 +6,9 @@
   home.stateVersion = stateVersion;
 
   home.sessionVariables.EDITOR = "nvim";
+  home.sessionPath = ["$HOME/.volta/bin"];
+
+  home.packages = [pkgs.volta];
 
   programs.home-manager.enable = true;
   programs.fish = {

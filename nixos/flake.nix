@@ -15,12 +15,11 @@
     nixosConfigurations = {
       wsl = let
         system = "x86_64-linux";
+	pkgs = import inputs.nixpkgs {
+	  inherit system;
+	};
       in inputs.nixpkgs.lib.nixosSystem {
-        inherit system;
-
-        pkgs = import inputs.nixpkgs {
-          inherit system;
-        };
+        inherit system pkgs;
 
         specialArgs = {
           nixpkgs = inputs.nixpkgs;

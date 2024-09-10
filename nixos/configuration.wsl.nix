@@ -21,12 +21,17 @@ in {
 
   home-manager.users.${normalUserName} = import ./home.wsl.nix { inherit normalUserName stateVersion; };
   programs.fish.enable = true;
+  programs.nix-ld.enable = true;
 
   environment.systemPackages = [
     pkgs.rustup
     pkgs.temurin-bin
     pkgs.sbt
     pkgs.bun
+    pkgs.clang
+    pkgs.zig
+    pkgs.gnumake
+    pkgs.volta
   ];
 
   virtualisation.docker = {
