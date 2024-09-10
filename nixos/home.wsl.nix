@@ -5,7 +5,12 @@
   home.homeDirectory = "/home/${normalUserName}";
   home.stateVersion = stateVersion;
 
+  home.sessionVariables.EDITOR = "nvim";
+
   programs.home-manager.enable = true;
+  programs.fish = {
+    enable = true;
+  };
   programs.git = {
     enable = true;
     
@@ -28,6 +33,9 @@
     };
   };
   programs.neovim = {
+    enable = true;
+  };
+  programs.awscli = {
     enable = true;
   };
 }

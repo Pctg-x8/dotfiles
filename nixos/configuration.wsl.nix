@@ -16,9 +16,13 @@ in {
   users.users.${normalUserName} = {
     isNormalUser = true;
     extraGroups = ["wheel"];
+    shell = pkgs.fish;
   };
 
   home-manager.users.${normalUserName} = import ./home.wsl.nix { inherit normalUserName stateVersion; };
+  programs.fish.enable = true;
+
+  environment.systemPackages = [pkgs.rustup];
 
   virtualisation.docker = {
     enable = true;
