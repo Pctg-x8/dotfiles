@@ -1,24 +1,42 @@
-# Edit this configuration file to define what should be installed on
-# your system. Help is available in the configuration.nix(5) man page, on
-# https://search.nixos.org/options and in the NixOS manual (`nixos-help`).
+{ pkgs, nixpkgs, ... }:
+let
+  normalUserName = "pctgx8";
+  stateVersion = "24.05";
+in {
+  system.stateVersion = stateVersion;
 
-# NixOS-WSL specific options are documented on the NixOS-WSL repository:
-# https://github.com/nix-community/NixOS-WSL
+  wsl = {
+    enable = true;
+    defaultUser = normalUserName;
+    wslConf.automount.root = "/mnt";
 
-{ pkgs, ... }:
+    docker-desktop.enable = false;
+  };
 
-{
-  wsl.enable = true;
-  wsl.defaultUser = "nixos";
-  
+  users.users.${normalUserName} = {
+    isNormalUser = true;
+    extraGroups = ["wheel"];
+  };
 
-  # This value determines the NixOS release from which the default
-  # settings for stateful data, like file locations and database versions
-  # on your system were taken. It's perfectly fine and recommended to leave
-  # this value at the release version of the first install of this system.
-  # Before changing this value read the documentation for this option
-  # (e.g. man configuration.nix or on https://nixos.org/nixos/options.html).
-  system.stateVersion = "24.05"; # Did you read the comment?
+  home-manager.users.${normalUserName} = import ./home.wsl.nix { inherit normalUserName stateVersion; };
 
-  nix.settings.experimental-features = ["nix-command" "flakes"];
+  virtualisation.docker = {
+    enable = true;
+    enableOnBoot = true;
+    autoPrune.enable = true;
+  };
+
+  nix = {
+    settings.trusted-users = [normalUserName];
+    settings.accept-flake-config = true;
+    settings.auto-optimise-store = true;
+    settings.experimental-features = ["nix-command" "flakes"];
+
+    package = pkgs.nixFlakes;
+    nixPath = [
+      "nixpkgs=${nixpkgs.outPath}"
+      "nixos-config=/etc/nixos/configuration.nix"
+      "/nix/var/nix/profiles/per-user/root/channels"
+    ];
+  };
 }
