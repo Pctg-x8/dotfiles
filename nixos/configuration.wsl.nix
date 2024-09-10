@@ -22,7 +22,12 @@ in {
   home-manager.users.${normalUserName} = import ./home.wsl.nix { inherit normalUserName stateVersion; };
   programs.fish.enable = true;
 
-  environment.systemPackages = [pkgs.rustup];
+  environment.systemPackages = [
+    pkgs.rustup
+    pkgs.temurin-bin
+    pkgs.sbt
+    pkgs.bun
+  ];
 
   virtualisation.docker = {
     enable = true;
