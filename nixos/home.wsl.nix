@@ -1,6 +1,10 @@
 { normalUserName, stateVersion }: { config, pkgs, ... }:
-
-{
+let
+  extra-npm-packages = import ./extra-npm-packages {
+    inherit pkgs;
+    nodejs = pkgs.nodejs;
+  };
+in {
   home.username = normalUserName;
   home.homeDirectory = "/home/${normalUserName}";
   home.stateVersion = stateVersion;
@@ -8,7 +12,7 @@
   home.sessionVariables.EDITOR = "nvim";
   home.sessionPath = ["$HOME/.volta/bin"];
 
-  home.packages = [pkgs.volta];
+  home.packages = [pkgs.volta extra-npm-packages."@dotenvx/dotenvx-1.14.0"];
 
   programs.home-manager.enable = true;
   programs.fish = {
