@@ -1,0 +1,17 @@
+[user]
+    name = "S.Percentage"
+    email = "2141528+Pctg-x8@users.noreply.github.com"
+
+[alias]
+    p = push
+    pff = pull -ff
+    m = merge --no-ff
+    co = checkout
+    cm = commit -m
+    st = status -sb
+    pu = push -u
+    lg1 = log --oneline --pretty
+    merc = merge --no-ff
+    fp = fetch -p
+    rh = reset --hard
+
