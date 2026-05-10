@@ -3,7 +3,7 @@ set -l ScriptPath (dirname (status -f))
 set -x GPG_TTY (tty)
 set -x EDITOR (which vim)
 
-if status is-interactive
+if status is-interactive; and [ (uname) = "Darwin" ]
 	eval (/opt/homebrew/bin/brew shellenv)
 end
 
@@ -31,3 +31,4 @@ set -q GHCUP_INSTALL_BASE_PREFIX[1]; or set GHCUP_INSTALL_BASE_PREFIX $HOME ; se
 # >>> coursier install directory >>>
 set -gx PATH "$PATH:/Users/pctgx8/Library/Application Support/Coursier/bin"
 # <<< coursier install directory <<<
+

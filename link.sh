@@ -13,3 +13,5 @@ ln -sf $BASE_PATH/fishconfig/prompt.fish ~/.config/fish/prompt.fish
 touch ~/.config/fish/local-path.fish
 touch ~/.config/fish/local-aliases.fish
 
+ln -sf $BASE_PATH/gitconfig ~/.gitconfig
+
