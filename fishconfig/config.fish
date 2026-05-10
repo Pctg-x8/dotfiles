@@ -17,6 +17,8 @@ source $ScriptPath/prompt.fish
 source $ScriptPath/local-aliases.fish
 source $ScriptPath/local-path.fish
 
+source $HOME/.cargo/env.fish
+
 set -gx VOLTA_HOME "$HOME/.volta"
 set -gx PATH "$VOLTA_HOME/bin" $PATH
 
@@ -25,3 +27,7 @@ set -gx PNPM_HOME "/Users/pctgx8/Library/pnpm"
 set -gx PATH "$PNPM_HOME" $PATH
 # pnpm end
 set -q GHCUP_INSTALL_BASE_PREFIX[1]; or set GHCUP_INSTALL_BASE_PREFIX $HOME ; set -gx PATH $HOME/.cabal/bin /Users/pctgx8/.ghcup/bin $PATH # ghcup-env
+
+# >>> coursier install directory >>>
+set -gx PATH "$PATH:/Users/pctgx8/Library/Application Support/Coursier/bin"
+# <<< coursier install directory <<<
