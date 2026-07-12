@@ -75,7 +75,8 @@
   # local settings
   programs.zed-editor.userSettings = {
     buffer_font_family = "Moralerspace Neon";
-    buffer_font_size = 13;
+    buffer_font_size = 12;
+    ui_font_size = 14;
   };
 
   # Let Home Manager install and manage itself.

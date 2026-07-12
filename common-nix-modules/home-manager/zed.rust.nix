@@ -1,10 +1,9 @@
 { ... }:
 {
   programs.zed-editor = {
-    extensions = [ "rust" "toml" ];
+    extensions = [ "toml" ];
     userSettings.lsp.rust-analyzer.initialization_options = {
       cargo.targetDir = true;
     };
   };
 }
-

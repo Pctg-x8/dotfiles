@@ -5,13 +5,13 @@
 
     extensions = [
       "nix"
-      "Catppuccin Blur"
-      "Catppuccin Icons"
+      "catppuccin-blur"
+      "catppuccin-icons"
     ];
     userSettings = {
       theme = {
         mode = "dark";
-        dark = "Catppuccin Mocha (Blur)";
+        dark = "Catppuccin Espresso (Blur)";
         light = "Catppuccin Frappe";
       };
       icon_theme = {
@@ -20,7 +20,24 @@
         light = "Catppuccin Frappe";
       };
       journal.hour_format = "hour24";
+      cli_default_open_behavior = "new_window";
+      formatter = "language_server";
+      # panels
+      project_panel = {
+        dock = "left";
+        git_status = true;
+        diagnostic_badges = true;
+      };
+      git_panel = {
+        dock = "left";
+        show_count_badge = true;
+      };
+      outline_panel.dock = "left";
+      collaboration_panel.button = false;
+      agent = {
+        dock = "right";
+        sidebar_side = "right";
+      };
     };
   };
 }
-
