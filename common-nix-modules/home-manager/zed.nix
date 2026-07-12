@@ -9,8 +9,11 @@
       "Catppuccin Icons"
     ];
     userSettings = {
-      theme.mode = "dark";
-      theme.dark = "Catppuccin Mocha (Blur)";
+      theme = {
+        mode = "dark";
+        dark = "Catppuccin Mocha (Blur)";
+        light = "Catppuccin Frappe";
+      };
       icon_theme = {
         mode = "dark";
         dark = "Catppuccin Mocha";

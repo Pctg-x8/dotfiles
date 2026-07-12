@@ -23,6 +23,7 @@
         # Specify your home configuration modules here, for example,
         # the path to your home.nix.
         modules = [
+          ../common-nix-modules/home-manager/base.nix
           ../common-nix-modules/home-manager/neovim.nix
           ../common-nix-modules/home-manager/git.nix
           ../common-nix-modules/home-manager/fish.nix
