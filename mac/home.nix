@@ -68,7 +68,14 @@
   #  /etc/profiles/per-user/pctgx8/etc/profile.d/hm-session-vars.sh
   #
   home.sessionVariables = {
-    # EDITOR = "emacs";
+    EDITOR = "nvim";
+  };
+  programs.neovim.defaultEditor = true;
+
+  # local settings
+  programs.zed-editor.userSettings = {
+    buffer_font_family = "Moralerspace Neon";
+    buffer_font_size = 13;
   };
 
   # Let Home Manager install and manage itself.
