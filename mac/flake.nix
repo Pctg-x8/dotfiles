@@ -29,6 +29,7 @@
           ../common-nix-modules/home-manager/fish.nix
           ../common-nix-modules/home-manager/zed.nix
           ../common-nix-modules/home-manager/zed.rust.nix
+          ../common-nix-modules/home-manager/zed.scala.nix
           ./home.nix
         ];
 
