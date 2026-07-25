@@ -19,7 +19,7 @@
         pff = "pull --ff-only";
         sl = "stash list";
         spp = "stash pop";
-        lg1 = "log --oneline --graph --pretty='%Cgreen%h%Creset $s ($an, $al)'";
+        lg1 = "log --oneline --graph --pretty='%Cgreen%h%Creset %s (%an) @ %aI'";
         fp = "fetch -p";
         merc = "merge --no-ff";
         mcont = "merge --continue";
