@@ -8,10 +8,19 @@
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    zed = {
+      url = "github:zed-industries/zed";
+      # inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs =
-    { nixpkgs, home-manager, ... }:
+    {
+      nixpkgs,
+      home-manager,
+      zed,
+      ...
+    }:
     let
       system = "aarch64-darwin";
       pkgs = nixpkgs.legacyPackages.${system};
@@ -31,6 +40,8 @@
           ../common-nix-modules/home-manager/zed.rust.nix
           ../common-nix-modules/home-manager/zed.scala.nix
           ./home.nix
+          # use latest package
+          (_: { programs.zed-editor.package = zed.packages.${system}.default; })
         ];
 
         # Optionally use extraSpecialArgs
