@@ -3,11 +3,15 @@
   programs.fish = {
     enable = true;
 
-    plugins = [ { name = "bass"; src = pkgs.fishPlugins.bass.src; } ];
+    plugins = [
+      {
+        name = "bass";
+        src = pkgs.fishPlugins.bass.src;
+      }
+    ];
     loginShellInit = ''
-      bass source $HOME/.nix-profile/etc/profile.d/hm-session-vars.sh
+      source $HOME/.nix-profile/etc/profile.d/hm-session-vars.fish
     '';
     interactiveShellInit = builtins.readFile ./interactiveInit.fish;
   };
 }
-

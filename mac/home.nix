@@ -1,6 +1,6 @@
 { config, pkgs, ... }:
 
-{
+rec {
   # Home Manager needs a bit of information about you and the paths it should
   # manage.
   home.username = "pctgx8";
@@ -69,6 +69,8 @@
   #
   home.sessionVariables = {
     EDITOR = "nvim";
+    # vulkan sdk will be installed under home directory
+    VULKAN_SDK = "${home.homeDirectory}/VulkanSDK/1.4.350.1/macOS";
   };
   programs.neovim.defaultEditor = true;
 
