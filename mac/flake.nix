@@ -39,6 +39,7 @@
           ../common-nix-modules/home-manager/zed.nix
           ../common-nix-modules/home-manager/zed.rust.nix
           ../common-nix-modules/home-manager/zed.scala.nix
+          ../common-nix-modules/home-manager/gamedev.nix
           ./home.nix
           # use latest package
           (_: { programs.zed-editor.package = zed.packages.${system}.default; })

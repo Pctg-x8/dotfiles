@@ -75,6 +75,7 @@ rec {
   programs.neovim.defaultEditor = true;
 
   # local settings
+  programs.zed-editor.extensions = [ "swift" ];
   programs.zed-editor.userSettings = {
     buffer_font_family = "Moralerspace Neon";
     buffer_font_size = 12;
