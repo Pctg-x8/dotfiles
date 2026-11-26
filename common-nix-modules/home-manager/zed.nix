@@ -7,6 +7,7 @@
       "nix"
       "catppuccin-blur"
       "catppuccin-icons"
+      "sql"
     ];
     userSettings = {
       theme = {
